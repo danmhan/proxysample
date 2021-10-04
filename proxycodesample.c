@@ -50,11 +50,10 @@ main(int argc, char **argv)
 	signal(SIGPIPE, SIG_IGN);
 
 	while (1) {
-
 		clientlen = sizeof(struct sockaddr_storage);
 
 		/* Accepts a pending connection request. */
-		connfd = malloc(sizeof(int)); // To protect against bug
+		connfd = malloc(sizeof(int));
 		clientaddrp = malloc(sizeof(struct sockaddr));
 		*connfd = accept(listenfd, (struct sockaddr *)clientaddrp, 
 		    &clientlen);
